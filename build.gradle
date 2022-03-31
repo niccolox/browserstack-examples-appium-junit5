@@ -1,0 +1,115 @@
+apply plugin: 'java'
+apply plugin: 'io.qameta.allure'
+
+repositories {
+    mavenLocal()
+    maven {
+        url = uri('https://repo.maven.apache.org/maven2/')
+    }
+    maven {
+        url = uri('https://plugins.gradle.org/m2/')
+    }
+}
+
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath "io.qameta.allure:allure-gradle:2.8.1"
+    }
+}
+
+dependencies {
+    implementation 'io.appium:java-client:7.6.0'
+    implementation 'com.browserstack:browserstack-local-java:1.0.6'
+    implementation 'io.qameta.allure:allure-junit5:2.17.3'
+    implementation 'com.googlecode.json-simple:json-simple:1.1.1'
+    implementation 'org.assertj:assertj-core:3.18.0'
+    implementation 'org.slf4j:slf4j-api:1.7.30'
+    implementation 'org.slf4j:slf4j-simple:1.7.30'
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.2'
+    testImplementation 'org.junit.jupiter:junit-jupiter-engine:5.8.2'
+    testImplementation 'org.junit.jupiter:junit-jupiter-params:5.8.2'
+    testImplementation 'io.qameta.allure:allure-gradle:2.8.1'
+}
+
+group = 'com.browserstack'
+version = '1.0-SNAPSHOT'
+description = 'browserstack-examples-junit5'
+sourceCompatibility = JavaVersion.VERSION_1_8
+
+allure {
+    autoconfigure = true
+    version = '2.17.3'
+    resultsDir = file('../allure-results')
+}
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
+
+ext.parallel = ['junit.jupiter.execution.parallel.enabled'                 : true,
+                'junit.jupiter.execution.parallel.mode.default'            : 'concurrent',
+                'junit.jupiter.execution.parallel.config.strategy'         : 'fixed',
+                'junit.jupiter.execution.parallel.config.fixed.parallelism': Integer.parseInt(project.property('parallelCount'))]
+
+tasks.register('on-prem', Test) {
+    useJUnitPlatform {
+        if (project.hasProperty('test-name')) {
+            includeTags project.property('test-name')
+        } else {
+            includeTags "e2e"
+        }
+    }
+    testLogging {
+        events "PASSED", "FAILED", "SKIPPED"
+    }
+}
+
+tasks.register('on-prem-suite', Test) {
+    useJUnitPlatform {
+        excludeTags "LocalTest"
+    }
+    testLogging {
+        events "PASSED", "FAILED", "SKIPPED"
+    }
+}
+
+tasks.register('bstack-single', Test) {
+    useJUnitPlatform {
+        if (project.hasProperty('test-name')) {
+            includeTags project.property('test-name')
+        } else {
+            includeTags "e2e"
+        }
+    }
+    systemProperty "testEnv", "remote"
+    systemProperty "testType", "single"
+    testLogging {
+        events "PASSED", "FAILED", "SKIPPED"
+    }
+}
+
+tasks.register('bstack-local', Test) {
+    useJUnitPlatform {
+        includeTags "LocalTest"
+    }
+    systemProperty "testEnv", "remote"
+    systemProperty "testType", "local"
+    testLogging {
+        events "PASSED", "FAILED", "SKIPPED"
+    }
+}
+
+tasks.register('bstack-parallel', Test) {
+    useJUnitPlatform() {
+        systemProperties = parallel
+        excludeTags "LocalTest"
+    }
+    systemProperty "testEnv", "remote"
+    systemProperty "testType", "parallel"
+    testLogging {
+        events "PASSED", "FAILED", "SKIPPED"
+    }
+}
