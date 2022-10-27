@@ -125,7 +125,7 @@ https://app-automate.browserstack.com/dashboard/v2/builds/5fd898b9f761215bf396e0
 #### Embedded reports
 ![Jenkins Pipelie](./docs/jenkins-report.gif)
 
-#### Embedded reports
+#### Browserstack creds
 ![Jenkins Pipelie](./docs/browserstack-plugin-creds.png)
 
 ## OPEN ISSUES
