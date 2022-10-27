@@ -125,6 +125,9 @@ https://app-automate.browserstack.com/dashboard/v2/builds/5fd898b9f761215bf396e0
 #### Embedded reports
 ![Jenkins Pipelie](/docs/jenkins-report.gif)
 
+#### Embedded reports
+![Jenkins Pipelie](/docs/browserstack-plugin-creds.gif)
+
 ## OPEN ISSUES
 
 1. test_caps.json only recognizes first device. Won't start test with multiple devices. I assume the TestBase.java has an limitation that is not seen in the similar implementation in Selenium BCDemo from which its modelled. Started to do a side by side compare, but have too many other onboarding tasks. 
