@@ -123,7 +123,7 @@ https://app-automate.browserstack.com/dashboard/v2/builds/5fd898b9f761215bf396e0
 ![Jenkins Pipelie](/docs/jenkins-pipeline.gif)
   
 #### Embedded reports
-![Jenkins Pipelie](/docs/jenkins-pipeline.gif)
+![Jenkins Pipelie](/docs/jenkins-report.gif)
 
 ## OPEN ISSUES
 
