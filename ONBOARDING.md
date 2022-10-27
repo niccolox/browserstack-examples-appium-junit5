@@ -120,13 +120,13 @@ https://app-automate.browserstack.com/dashboard/v2/builds/5fd898b9f761215bf396e0
 ### CI/CD tasks 
 
 #### Launch test from Jenkins
-![Jenkins Pipelie](/docs/jenkins-pipeline.gif)
+![Jenkins Pipelie](./docs/jenkins-pipeline.gif)
   
 #### Embedded reports
-![Jenkins Pipelie](/docs/jenkins-report.gif)
+![Jenkins Pipelie](./docs/jenkins-report.gif)
 
 #### Embedded reports
-![Jenkins Pipelie](/docs/browserstack-plugin-creds.gif)
+![Jenkins Pipelie](./docs/browserstack-plugin-creds.png)
 
 ## OPEN ISSUES
 
