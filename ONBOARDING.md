@@ -117,7 +117,18 @@ public class HomePage extends BasePage {
 
 https://app-automate.browserstack.com/dashboard/v2/builds/5fd898b9f761215bf396e06414915baccff67e2a/sessions/ef570a67a2efd4907000d9c21aae76873ec3a552?buildUserIds=6504358
 
+### CI/CD tasks 
+
+#### Launch test from Jenkins
+![Jenkins Pipelie](/docs/jenkins-pipeline.gif)
+  
+#### Embedded reports
+![Jenkins Pipelie](/docs/jenkins-pipeline.gif)
+
 ## OPEN ISSUES
 
 1. test_caps.json only recognizes first device. Won't start test with multiple devices. I assume the TestBase.java has an limitation that is not seen in the similar implementation in Selenium BCDemo from which its modelled. Started to do a side by side compare, but have too many other onboarding tasks. 
 2. parallel fails when run unchanged, is this by design? 
+
+## TODO 
+1. app upload not done

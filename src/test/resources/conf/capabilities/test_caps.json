@@ -13,7 +13,7 @@
       "common_caps": {
         "project": "nicholas-parallel-appium-browserstack-examples",
         "build": "nicholas-parallel-browserstack-examples-junit5",
-        "name": "Parallel Test",
+        "name": "BROWSERSTACK_BUILD_NAME",
         "browserstack.debug": "true",
         "browserstack.networkLogs": "true",
         "browserstack.console": "verbose",
@@ -39,7 +39,7 @@
       "common_caps": {
         "project": "nicholas-single-appium-browserstack-examples",
         "build": "nicholas-browserstack-examples-appium-junit5",
-        "name": "Single Test",
+        "name": "BROWSERSTACK_BUILD_NAME",
         "browserstack.debug": "true",
         "browserstack.networkLogs": "true",
         "browserstack.console": "verbose",
