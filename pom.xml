@@ -15,8 +15,9 @@
         <maven.compiler.target>1.8</maven.compiler.target>
         <aspectj.version>1.9.5</aspectj.version>
         <allure-maven.version>2.10.0</allure-maven.version>
-        <parallel.count>3</parallel.count>
+        <parallel.count>4</parallel.count>
         <single.test>e2e</single.test>
+        <onboarding.test>onboarding</onboarding.test>
         <junit.parallel.properties>
             junit.jupiter.execution.parallel.enabled = true
             junit.jupiter.execution.parallel.mode.default = concurrent
