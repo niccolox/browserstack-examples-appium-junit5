@@ -1,8 +1,8 @@
 {
   "user": "BROWSERSTACK_USERNAME",
   "key": "BROWSERSTACK_ACCESS_KEY",
-  "app.android": "BrowserStackDemoAppApk",
-  "app.ios": "BrowserStackDemoAppIos",
+  "app.android": "bs://a6cf915943e8e2916475fb497e9457b62d7498f8",
+  "app.ios": "bs://4aedeeb256630e1b8bd76b21c919da05312f99cf",
   "app.local": "browserstack-demoapp.app",
   "platformName": "iOS",
   "deviceName": "iPhone 13",
@@ -11,12 +11,13 @@
   "tests": {
     "parallel": {
       "common_caps": {
-        "project": "browserstack-examples",
-        "build": "browserstack-examples-junit5",
-        "name": "Parallel Test",
+        "project": "nicholas-parallel-appium-browserstack-examples",
+        "build": "nicholas-parallel-browserstack-examples-junit5",
+        "name": "BROWSERSTACK_BUILD_NAME",
         "browserstack.debug": "true",
         "browserstack.networkLogs": "true",
-        "browserstack.console": "verbose"
+        "browserstack.console": "verbose",
+        "browserstack.timezone" : "Kolkata"
       },
       "env_caps": [
         {
@@ -36,10 +37,13 @@
     },
     "single": {
       "common_caps": {
-        "project": "browserstack-examples",
-        "build": "browserstack-examples-appium-junit5",
-        "name": "Single Test",
-        "browserstack.debug": "true"
+        "project": "nicholas-single-appium-browserstack-examples",
+        "build": "nicholas-browserstack-examples-appium-junit5",
+        "name": "BROWSERSTACK_BUILD_NAME",
+        "browserstack.debug": "true",
+        "browserstack.networkLogs": "true",
+        "browserstack.console": "verbose",
+        "browserstack.timezone" : "Kolkata"
       },
       "env_caps": [
         {

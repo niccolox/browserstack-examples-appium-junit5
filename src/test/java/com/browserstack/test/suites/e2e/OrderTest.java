@@ -14,17 +14,16 @@ public class OrderTest extends TestBase {
     @Test
     public void placeOrder() {
         HomePage page = new HomePage(driver)
+                .navigateToSort()
+                .addProductToCart("12")
                 .navigateToSignIn()
                 .loginWith("fav_user", "testingisfun99")
-                .addProductToCart("12")
-                .addProductToCart("16")
-                .addProductToCart("23")
                 .openCart()
                 .proceedToCheckout()
                 .enterShippingDetails("firstname", "lastname", "address", "state", "12345")
                 .continueShopping();
 
         OrdersPage ordersPage = page.navigateToOrders();
-        assertEquals(ordersPage.getItemsFromOrder(), 3);
+        assertEquals(ordersPage.getItemsFromOrder(), 1);
     }
 }

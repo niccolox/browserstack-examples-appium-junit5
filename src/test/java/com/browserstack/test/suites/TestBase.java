@@ -102,7 +102,7 @@ public class TestBase {
             username = testCapsConfig.get("user").toString();
         }
         return username;
-    }
+    }  
 
     private String getAccessKey(JSONObject testCapsConfig) {
         String accessKey = System.getenv("BROWSERSTACK_ACCESS_KEY");
